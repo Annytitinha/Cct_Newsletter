@@ -59,7 +59,7 @@ app.post ("/", function(req, res){
   });
 // passing the data to the mailchimp server
  // request.write(jsonData);
-  //request.end();
+  request.end();
   //}
 
 });
