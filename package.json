@@ -1,22 +1,26 @@
 {
   "name": "cct_newsletter",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "newsletter ap using mailchimp API",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app",
+    "dev":"nodemon app"
   },
-  "author": "anaiana",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Annytitinha/Cct_Newsletter.git"
+  },
+  "author": "Anaiana",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Annytitinha/Cct_Newsletter/issues"
+  },
+  "homepage": "https://github.com/Annytitinha/Cct_Newsletter#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
-    "heroku": "^7.39.5",
-    "http": "0.0.1-security",
-    "node.js": "0.0.1-security",
-    "nodemon": "^2.0.3",
     "path": "^0.12.7",
     "request": "^2.88.2"
-  },
-  "devDependencies": {},
-  "description": "cct news letter"
+  }
 }
