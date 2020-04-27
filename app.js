@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({
 
 
 app.get("/", function(req, res){
-    res.sendFile(__dirname + "signup.html");
+    res.sendFile(__dirname + "/signup.html");
 });
 
 app.post ("/", function(req, res){
@@ -23,7 +23,7 @@ app.post ("/", function(req, res){
     var firtName = req.body.fName;
     var lastName = req.body.lName;
     var email = req.body.email;
-
+    // data object js
     var data = {
       members:[
         {
@@ -36,10 +36,11 @@ app.post ("/", function(req, res){
         }
       ]
     };
+    //tunring it into flagpack json, passing data into a string Json format
     const jsonData = JSON.stringfy(data);
-
+    // 
     const url = "https://us8.api.mailchimp.com/3.0/lists/fd5e2741f8"
-
+    //creating options
     const options = {
       method:"POST",
       auth:"anaiana:ead193d671e84a5aaea6eb44ec76dc0d-us8"
@@ -47,7 +48,7 @@ app.post ("/", function(req, res){
 
   const request = https.request(url, options,function(response){
     if (response.statusCode == 200){
-      res.sendFile(__dirname + "success.html");
+      res.sendFile(__dirname + "/success.html");
     }else {
       res.sendFile(__dirname + "/failure.html");
     }
