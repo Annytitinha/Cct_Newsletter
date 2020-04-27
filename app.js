@@ -37,7 +37,7 @@ app.post ("/", function(req, res){
       ]
     };
     //tunring it into flagpack json, passing data into a string Json format
-    const jsonData = JSON.stringfy(data);
+    //const jsonData = JSON.stringfy(data);
     // 
     const url = "https://us8.api.mailchimp.com/3.0/lists/fd5e2741f8";
     //creating options
