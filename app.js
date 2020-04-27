@@ -30,7 +30,7 @@ app.post ("/", function(req, res){
           email_address: email,
           status:"subscribed",
           merge_fields:{
-            FNAME:firtName,
+            FNAME: firtName,
             LNAME: lastName
           }
         }
@@ -39,13 +39,13 @@ app.post ("/", function(req, res){
     //tunring it into flagpack json, passing data into a string Json format
     const jsonData = JSON.stringfy(data);
     // 
-    const url = "https://us8.api.mailchimp.com/3.0/lists/fd5e2741f8"
+    const url = "https://us8.api.mailchimp.com/3.0/lists/fd5e2741f8";
     //creating options
     const options = {
       method:"POST",
       auth:"anaiana:ead193d671e84a5aaea6eb44ec76dc0d-us8"
     }
-
+    // cnheck the date that we get send back
   const request = https.request(url, options,function(response){
     if (response.statusCode == 200){
       res.sendFile(__dirname + "/success.html");
@@ -57,9 +57,10 @@ app.post ("/", function(req, res){
       console.log(JSON.parse(data));
     });
   });
-
-  request.write(jsonData);
-  request.end();
+// passing the data to the mailchimp server
+ // request.write(jsonData);
+  //request.end();
+  //}
 
 });
 
