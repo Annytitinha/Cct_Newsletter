@@ -1,8 +1,6 @@
-//jshint esversion: 6
-
-const express = require("express");
-const bodyParser = require("body-parser");
-const request = require("request");
+const express = require('express');
+const bodyParser = require('body-parser');
+const request = require('request');
 const path = require('path');
 
 const app = express();
@@ -14,15 +12,15 @@ app.use(bodyParser.urlencoded({extended: true}));
 // Static folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get("/", function(req, res){
-    res.sendFile(__dirname + "/signup.html");
-});
+//app.get("/", function(req, res){
+    //res.sendFile(__dirname + "/signup.html");
+//});
 
-// Signup Route
+// Signup Route... END POINT SIGNUP
 app.post('/signup', (req, res) => {
   const { firstName, lastName, email } = req.body;
 
-  // Make sure fields are filled
+  // validation...Make sure fields are filled
   if (!firstName || !lastName || !email) {
     res.redirect('/failure.html');
     return;
@@ -35,7 +33,7 @@ app.post('/signup', (req, res) => {
     //var email = req.body.email;
 
     // data object js
-     // Construct req data
+     // Construct req data acordinly to mailchimp
   const data = {
     members: [
       {
@@ -52,10 +50,10 @@ app.post('/signup', (req, res) => {
   const postData = JSON.stringify(data);
 
   const options = {
-    url: 'us8.api.mailchimp.com/3.0/lists/fd5e2741f8',
+    url: 'https//us8.api.mailchimp.com/3.0/lists/fd5e2741f8',
     method: 'POST',
     headers: {
-      Authorization: 'auth anaiana:ead193d671e84a5aaea6eb44ec76dc0d-us8'
+      Authorization: 'auth ead193d671e84a5aaea6eb44ec76dc0d-us8'
     },
     body: postData
   };
@@ -94,6 +92,7 @@ app.listen(process.env.PORT|| 3000, function() {
 
 //API KEY
 //ead193d671e84a5aaea6eb44ec76dc0d-us8
+
 
 //list Id
 
