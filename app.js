@@ -14,9 +14,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 // Static folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-//app.get("/", function(req, res){
-    //res.sendFile(__dirname + "/signup.html");
-//});
+app.get("/", function(req, res){
+    res.sendFile(__dirname + "/signup.html");
+});
 
 // Signup Route
 app.post('/signup', (req, res) => {
@@ -24,7 +24,7 @@ app.post('/signup', (req, res) => {
 
   // Make sure fields are filled
   if (!firstName || !lastName || !email) {
-    res.redirect('/fail.html');
+    res.redirect('/failure.html');
     return;
   }
 
@@ -65,12 +65,12 @@ app.post('/signup', (req, res) => {
     // cnheck the date that we get send back
   request(options, (err, response, body) => {
     if (err) {
-      res.redirect('/fail.html');
+      res.redirect('/failure.html');
     } else {
       if (response.statusCode === 200) {
-        res.redirect('/success.html');
+        res.redirect('/successful.html');
       } else {
-        res.redirect('/fail.html');
+        res.redirect('/failure.html');
       }
     }
   });
