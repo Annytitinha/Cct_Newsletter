@@ -4,8 +4,8 @@
   "description": "newsletter ap using mailchimp API",
   "main": "app.js",
   "scripts": {
-    "start": "node app",
-    "dev":"nodemon app"
+    "start": "node app.js",
+    "dev": "nodemon app"
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,11 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
+    "node.js": "0.0.1-security",
     "path": "^0.12.7",
     "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
   }
 }
